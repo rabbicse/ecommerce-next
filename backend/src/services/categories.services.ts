@@ -5,7 +5,9 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function getAll(page: number = 1) {
-  const rows = await prisma.categories.findMany();
+  const rows = await prisma.categories.findMany({
+    take: 10
+  });
   const meta = { page };
 
   return {
