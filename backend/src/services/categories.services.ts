@@ -1,5 +1,3 @@
-import db from "./db.services";
-import helper from "../utils/helper.util";
 
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()

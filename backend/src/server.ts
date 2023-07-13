@@ -11,6 +11,7 @@ const port = process.env.PORT;
 
 // Routes
 var categoriesRouter = require('./routes/categories.route');
+var bannersRouter = require('./routes/banners.route');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);
 app.use('/categories', categoriesRouter);
+app.use('/banners', bannersRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req: Request, res: Response, next: NextFunction) {
