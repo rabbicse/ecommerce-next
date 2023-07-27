@@ -7,17 +7,17 @@ export async function POST(req: Request, res: Response) {
         const reqBody = await req.json();
         const { email, name, password } = reqBody;
 
-        // const existingUser = await prismadb.user.findUnique({
-        //     where: {
-        //         email
-        //     }
-        // })
+        const existingUser = await prismadb.user.findUnique({
+            where: {
+                email
+            }
+        })
 
-        // if (existingUser) {
-        //     return NextResponse.json({ error: 'Email taken' }, {
-        //         status: 400
-        //     });
-        // }
+        if (existingUser) {
+            return NextResponse.json({ error: 'Email taken' }, {
+                status: 400
+            });
+        }
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
